@@ -81,17 +81,21 @@
       #tbl     >div:hover                                  { background-color:#007070;}
       #tbl     >div:hover              >a:hover            { font-weight:bold; margin:0px 6px; border:4px solid transparent; }
 
-      #ser                                                 { display:flex; flex-wrap:wrap; flex-direction:column; height:100%; -content:center; align-items:center; color:white; }
+      #ser                                                 { display:flex; flex-wrap:wrap; flex-direction:column; align-items:center; color:white; }
       #ser a                                               { text-decoration:none; color:inherit; text-align:center; }
       #ser>div                                             { display:flex; flex-direction:row; width:540px; padding:1px 2px; }
       #ser>div:nth-child(1)                                { height:21px; }
       #ser>div:nth-child(2)                                { height:45px; }
       #ser>div:nth-child(3)                                { height:85px; }
-      #ser>div:nth-child(4)                                { height:170px; }
+      #ser>div:nth-child(4)                                { height:167px; }
       #ser>div>div.t                                       { background:#007070; flex: 1; padding:1px 0 1px 2px; font-weight:bold; }
       #ser>div>div.pc                                      { background:#007070; flex: 1; padding:1px 2px 1px 0; font-size:0.9em; text-align:right; }
       #ser>div>div.l                                       { background:#509090; flex:12; padding:1px 3px 3px; display:flex; flex-direction:column; flex-wrap:wrap; }
       #ser>div>div.l>span                                  { flex:1; }
+
+      #x10         { font-size:smaller; position:relative; padding:1px 2px; flex-direction:row-reverse; }
+      #x10>div     { background:#007070; padding:4px; }
+      #x10>div>a   { background:#509090; padding:1px 4px; border-radius:8px; font-size:larger; margin:3px; }
 
       #vls                                                 { width:600px; margin:auto; text-align:center; background:#666; padding:0 0 15px; }
       #vls>#values                                         { font-size:1.75em; background:#444; color:white; margin:30px 0 5px; padding:5px;  }
@@ -356,6 +360,12 @@
         calculate();
       }
 
+      function multiply(m) {
+        if (m == 10 && values[3] <  6) values[3]++;
+        if (m == .1 && values[3] > -2) values[3]--;
+        calculate();
+      }
+
       function selectSelector(selection) {
         var sel = document.querySelector("div#main");
         sel.dataset.sel = selection;
@@ -509,6 +519,7 @@
               <a data-value="750">750</a> <a data-value="768">768</a> <a data-value="787">787</a> <a data-value="806">806</a> <a data-value="825">825</a> <a data-value="845">845</a> <a data-value="866">866</a> <a data-value="887">887</a> <a data-value="909">909</a> <a data-value="931">931</a> <a data-value="953">953</a> <a data-value="976">976</a>
             </div>
           </div>
+          <div id="x10"><div><a href="javascript:void(0);" onclick="multiply(0.1)">÷</a>10<a href="javascript:void(0);" onclick="multiply(10)">×</a></div></div>
         </div>
       </div>
       <div id="vls">
